@@ -1,0 +1,23 @@
+<h1>Hello, world!</h1>
+<button class="btn btn-primary" onclick="updateCounter()">Click Me!</button>
+<p>You've clicked <span id="counter">0</span> times!</p>
+<ul class="list-group"></ul>
+
+<script>
+  getContacts((data) => {
+    const list = document.querySelector(".list-group");
+
+    data.forEach((contact) => {
+      const a = document.createElement("a");
+      const li = document.createElement("li");
+
+      li.className = "list-group-item";
+      a.innerHTML = contact.name;
+
+      a.href = `mailto:${contact.email}`;
+      li.append(a);
+
+      list.appendChild(li);
+    });
+  });
+</script>
